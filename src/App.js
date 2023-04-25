@@ -5,15 +5,21 @@ import RowPost from "./Components/RowPost";
 import { actions, originals, romance, comedy, horror } from "./usrls";
 
 function App() {
-  return (
+  const rows = [
+    { url: originals, title: "Netflix Originals" },
+    { url: actions, title: "Action Movies", isSmall: true },
+    { url: romance, title: "Romance Movies", isSmall: true },
+    { url: comedy, title: "Comedy Movies", isSmall: true },
+    { url: horror, title: "Horror Movies", isSmall: true },
+  ];
+
+  return(
     <div className="Netflix">
       <NavBar />
       <Banner />
-      <RowPost url={originals} title="Netflix Originals" />
-      <RowPost url={actions} title="Action Movies" isSmall />
-      <RowPost url={romance} title="Romance Movies" isSmall />
-      <RowPost url={comedy} title="Comedy Movies" isSmall />
-      <RowPost url={horror} title="Horror Movies" isSmall />
+      {rows.map((row) => (
+        <RowPost url={row.url} title={row.title} isSmall={row.isSmall} />
+      ))}
     </div>
   );
 }
