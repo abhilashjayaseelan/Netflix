@@ -17,8 +17,8 @@ function App() {
     <div className="Netflix">
       <NavBar />
       <Banner />
-      {rows.map((row) => (
-        <RowPost url={row.url} title={row.title} isSmall={row.isSmall} />
+      {rows?.map((row) => (
+        <RowPost url={row?.url} title={row?.title} isSmall={row?.isSmall} />
       ))}
     </div>
   );
